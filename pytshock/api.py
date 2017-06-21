@@ -18,7 +18,10 @@ class Api(object):
 
     @property
     def current_token(self):
-        return self.token
+        if self.token:
+            return self.token
+        else:
+            return self._cache.get_token(self.host_ip, self.host_port)
         # if self._is_current_token_valid():
         #     return self.token
         # else:

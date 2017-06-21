@@ -4,7 +4,7 @@ setup(
     name='pytshock',
     version='1.0.0.dev1',
     description='A tshock client python project',
-    url='https://github.com/calvinjiang/hive-executor-py',
+    url='https://github.com/MozzieCN/pytshock.git',
     author='Raymond Liu',
     author_email='feiyhd000@gamil.com',
     license='MIT',
