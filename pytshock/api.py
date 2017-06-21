@@ -13,6 +13,7 @@ class Api(object):
         self.host_ip = host_ip
         self.host_port = host_port
         self._cache = token_cache
+        self.token = None
         self.root_url = 'http://{}:{}'.format(self.host_ip, self.host_port)
 
     @property
