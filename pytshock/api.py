@@ -8,7 +8,6 @@ from .exception import *
 
 class Api(object):
     def __init__(self, username: str, password: str, host_ip: str, host_port: str, token_cache: Cache):
-        self.token = token_cache.get_token(self.host_ip, self.host_port)
         self.username = username
         self.password = password
         self.host_ip = host_ip
@@ -22,14 +21,8 @@ class Api(object):
             return self.token
         else:
             return self._cache.get_token(self.host_ip, self.host_port)
-        # if self._is_current_token_valid():
-        #     return self.token
-        # else:
-        #     self.token = self._create_token()
-        #     return self.token
 
     def _create_token(self):
-        # print('{}/token/create?username={}&password={}'.format(self.root_url, self.username, self.password))
         response = requests.get(
             '{}/token/create?username={}&password={}'.format(self.root_url, self.username, self.password))
         if response.status_code == 200:
