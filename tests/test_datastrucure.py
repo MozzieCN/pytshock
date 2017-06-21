@@ -5,10 +5,10 @@ from pytshock.cache import Cache
 from pytshock.datastructure import Server, User, Ban, Player
 
 class TokenCache(Cache):
-    def save_token(self, host_ip: str, host_port: str) -> str:
+    def save_token(self, host_ip: str, host_port: str, token) -> str:
         return None
 
-    def get_token(self, host_ip: str, host_port: str, token: str):
+    def get_token(self, host_ip: str, host_port: str):
         pass
 cache = TokenCache()
 
