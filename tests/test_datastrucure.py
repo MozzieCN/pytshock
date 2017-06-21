@@ -19,10 +19,10 @@ class TestData(unittest.TestCase):
         self.server = Server()
 
     def testServer(self):
-        server = Server()
-        print(server.status(players=True, rules=True, api=self.api))
 
-        print(server.broadcast('马上有一波Goblin入侵开始', api=self.api))
+        print(Server.status(players=True, rules=True, api=self.api))
+
+        # print(Server.broadcast('马上有一波Goblin入侵开始', api=self.api))
 
     def testOff(self):
         self.server.off(api=self.api)

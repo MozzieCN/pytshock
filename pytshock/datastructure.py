@@ -1,15 +1,16 @@
 class Server(object):
     url_prefix = '/server'
 
-    def status(self, players=True, rules=False, api=None) -> dict:
-        pass
+    @classmethod
+    def status(cls, players=True, rules=True, api=None) -> dict:
         api = api or api
         data = {
             'players': players,
             'rules': rules,
         }
-        return api.send_request(self.url_prefix + '/status', data)
+        return api.send_request('/status', data)
 
+    #
     def broadcast(self, msg: str, api=None) -> str:
         api = api
         data = {
