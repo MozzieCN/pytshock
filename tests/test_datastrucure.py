@@ -1,14 +1,21 @@
 import unittest
 
 from pytshock.api import Api
-
+from pytshock.cache import Cache
 from pytshock.datastructure import Server, User, Ban, Player
 
+class TokenCache(Cache):
+    def save_token(self, host_ip: str, host_port: str) -> str:
+        return None
+
+    def get_token(self, host_ip: str, host_port: str, token: str):
+        pass
+cache = TokenCache()
 
 class TestData(unittest.TestCase):
     def setUp(self):
         self.api = Api('vstab', 'Terraria1353', '119.23.209.227', '7878',
-                       '871506A8C624FCC7A3B32513985B2D2B0D19BCCB72F43D6A1445B8675F60F45F')
+                       cache)
         self.server = Server()
 
     def testServer(self):

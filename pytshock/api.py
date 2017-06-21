@@ -78,7 +78,7 @@ class Api(object):
                     self._create_token()
                     self.send_request(endpoint, data, append_token, retry=False)
                 else:
-                    raise ParamException()
+                    raise NoPermissionException(message='获取服务器token失败，可能已被服务器屏蔽')
         else:
             raise ServerException()
 

@@ -5,8 +5,8 @@ class TShockException(Exception):
 
 
 class NoPermissionException(TShockException):
-    def __init__(self):
-        super().__init__(401, '没有权限访问')
+    def __init__(self , message):
+        super().__init__(401,message)
 
 
 class ParamException(TShockException):
