@@ -10,23 +10,25 @@ class Server(object):
         }
         return api.send_request('/status', data)
 
-    #
-    def broadcast(self, msg: str, api=None) -> str:
+    @classmethod
+    def broadcast(cls, msg: str, api=None) -> str:
         api = api
         data = {
             'msg': msg
         }
-        return api.send_request(self.url_prefix + '/broadcast', data)
+        return api.send_request(cls.url_prefix + '/broadcast', data)
 
-    def off(self, confirm=True, nosave=False, api=None):
+    @classmethod
+    def off(cls, confirm=True, nosave=False, api=None):
         api = api
         data = {
             'confirm': confirm,
             'nosave': nosave,
         }
-        return api.send_request(self.url_prefix + '/off', data)
+        return api.send_request(cls.url_prefix + '/off', data)
 
-    def raw_cmd(self, cmd: str, api=None):
+    @classmethod
+    def raw_cmd(cls, cmd: str, api=None):
         api = api
         data = {
             'cmd': cmd
